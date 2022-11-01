@@ -13,18 +13,23 @@ namespace _3_Задание
             
              try
             {
-                    Console.Write("Введите число №1 = ");
-                    uint a = Convert.ToUInt32(Console.ReadLine());
-                    Console.Write("Введите число №2 = ");
-                    uint b = Convert.ToUInt32(Console.ReadLine());
-                    Console.WriteLine($"{a}+{b}={a + b}");
-                    Console.WriteLine($"{a}-{b}={a - b}");
-                    Console.WriteLine($"{a}*{b}={a * b}");
-                    Console.WriteLine($"{a}/{b}={a / b}");
+                
+                Console.Write("Введите число №1 = ");
+                int a = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введите число №2 = ");
+                int b = Convert.ToInt32(Console.ReadLine());
+                if (b < 0 || a<0)
+                {
+                    throw new Exception("Число не должно быть отрицательным");
+                }
+                Console.WriteLine($"{a}+{b}={a + b}");
+                Console.WriteLine($"{a}-{b}={a - b}");
+                Console.WriteLine($"{a}*{b}={a * b}");
+                Console.WriteLine($"{a}/{b}={a / b}");
             }
-            catch
+            catch(Exception e)
             {
-                    Console.WriteLine("Число не может быть отрицательным");
+                Console.WriteLine($"Ошибка: {e.Message}");
             }
         }
     }
